@@ -1,6 +1,7 @@
 import os
 import time
 import logging
+import requests
 import numpy as np
 import onnxruntime as ort
 import asyncio
