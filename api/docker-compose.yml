@@ -10,7 +10,7 @@ services:
       MODEL_PATH: /model/model_name/model.onnx
       LOG_FILE: /logs/requests.log
     volumes:
-      - ./models:/model:ro
+      - ./models:/model
       - ./logs/qa-api-1:/logs
 
   qa-api-2:
@@ -22,7 +22,7 @@ services:
       MODEL_PATH: /model/model_name/model.onnx
       LOG_FILE: /logs/requests.log
     volumes:
-      - ./models:/model:ro
+      - ./models:/model
       - ./logs/qa-api-2:/logs
 
   qa-api-3:
@@ -34,5 +34,5 @@ services:
       MODEL_PATH: /model/model_name/model.onnx
       LOG_FILE: /logs/requests.log
     volumes:
-      - ./models:/model:ro
+      - ./models:/model
       - ./logs/qa-api-3:/logs
