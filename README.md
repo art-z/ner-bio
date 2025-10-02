@@ -62,4 +62,4 @@ python -m analysis.report
  ```bash
 python -m analysis.stats
 ``` 
-Результат: data/data/stats.csv, data/stats.json
+Результат: data/stats.csv, data/stats.json
