@@ -40,6 +40,9 @@ root/
 ## Установка
 
 ```bash
+sudo apt update 
+sudo apt install python3-venv python3-pip -y
+
 git clone https://github.com/art-z/ner-bio.git
 cd ner-bio
 python3 -m venv venv
@@ -63,3 +66,7 @@ python -m analysis.report
 python -m analysis.stats
 ``` 
 Результат: data/stats.csv, data/stats.json
+
+## Тренировка модели /train/README.md
+## Установка и запуск API /api/README.md
+ 
