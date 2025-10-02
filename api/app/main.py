@@ -21,6 +21,26 @@ logging.basicConfig(
 app = FastAPI()
 
 MODEL_PATH = os.getenv("MODEL_PATH", "/model/model.onnx")
+HF_URL = "https://huggingface.co/artzzzzz/ner/resolve/main/model.onnx"
+
+def ensure_model():
+    os.makedirs(os.path.dirname(MODEL_PATH), exist_ok=True)
+    if not os.path.exists(MODEL_PATH):
+        print(f"Модель не найдена в {MODEL_PATH}, загружаем с Hugging Face")
+        try:
+            r = requests.get(HF_URL, stream=True)
+            r.raise_for_status()
+            with open(MODEL_PATH, "wb") as f:
+                for chunk in r.iter_content(chunk_size=8192):
+                    f.write(chunk)
+            print("Модель загружена")
+        except Exception as e:
+            print(f"Ошибка загрузки модели: {e}")
+    else:
+        print(f"Модель уже загружена в {MODEL_PATH}")
+
+ensure_model()
+
 TOKENIZER_NAME = "DeepPavlov/rubert-base-cased"
 MAX_LEN = 500
 
