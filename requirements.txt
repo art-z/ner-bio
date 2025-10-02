@@ -1,0 +1,16 @@
+# === базовые ===
+pandas>=2.2.0
+numpy>=1.26.0
+tqdm>=4.66.0
+
+# === морфология ===
+pymorphy2>=0.9.1
+pymorphy2-dicts-ru>=2.4.417127.4579844
+
+# === метрики ===
+seqeval>=1.2.2
+scikit-learn>=1.4.0
+
+# === утилиты ===
+python-Levenshtein>=0.23.0
+regex>=2024.5.15

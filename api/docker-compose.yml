@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  qa-api-1:
+    build: .
+    container_name: qa-api-1
+    ports:
+      - "8088:8000"
+    environment:
+      MODEL_PATH: /model/model_name/model.onnx
+      LOG_FILE: /logs/requests.log
+    volumes:
+      - ./models:/model:ro
+      - ./logs/qa-api-1:/logs
+
+  qa-api-2:
+    build: .
+    container_name: qa-api-2
+    ports:
+      - "8089:8000"
+    environment:
+      MODEL_PATH: /model/model_name/model.onnx
+      LOG_FILE: /logs/requests.log
+    volumes:
+      - ./models:/model:ro
+      - ./logs/qa-api-2:/logs
+
+  qa-api-3:
+    build: .
+    container_name: qa-api-3
+    ports:
+      - "8090:8000"
+    environment:
+      MODEL_PATH: /model/model_name/model.onnx
+      LOG_FILE: /logs/requests.log
+    volumes:
+      - ./models:/model:ro
+      - ./logs/qa-api-3:/logs
